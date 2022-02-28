@@ -90,7 +90,7 @@ export default function Home() {
         date="November 2021 - December 2021"
         img={chronosPreview}>
         <p>Chronos is a fast-paced parkour plat-former video game. Race through the rooftops of a futuristic city to reach the goal. Time is limited, so move with speed and agility.</p>
-        <p>Created for the University of Michigan's EECS 494: Game Development course during the Fall 2021 term.</p>
+        <p>Created for the University of Michigan&apos; EECS 494: Game Development course during the Fall 2021 term.</p>
         <ButtonBar>
           <Button url="https://makersmelx.itch.io/chronos">
             Download on itch.io
@@ -118,7 +118,7 @@ export default function Home() {
         position="Personal Project"
         date="May 2021"
         img={imgCrypto}>
-        <p>Crypto-currency price monitoring tool designed and architected from the ground up. Provides a breakdown of the assets you hold in a <a href="https://www.binance.com/en" target="_blank" rel="noreferrer">Binance</a> account and interactive price charts for all USD trading pairs. Built using <a href="https://reactjs.org/" target="_blank" rel="noreferrer">React</a> for the front-end and <a href="https://flask.palletsprojects.com/en/2.0.x/" target="_blank" rel="noreferrer">Flask</a> for the back end. Securely fetches account information and live price data using Binance's API.</p>
+        <p>Crypto-currency price monitoring tool designed and architected from the ground up. Provides a breakdown of the assets you hold in a <a href="https://www.binance.com/en" target="_blank" rel="noreferrer">Binance</a> account and interactive price charts for all USD trading pairs. Built using <a href="https://reactjs.org/" target="_blank" rel="noreferrer">React</a> for the front-end and <a href="https://flask.palletsprojects.com/en/2.0.x/" target="_blank" rel="noreferrer">Flask</a> for the back end. Securely fetches account information and live price data using Binance&apos;s API.</p>
         <ButtonBar>
           <Button url="https://github.com/jfaro/binance-trading-client" icon={<AiFillGithub />}>
             GitHub (UI)
@@ -150,7 +150,7 @@ export default function Home() {
         position="Front-End Developer"
         date="May 2020 - August 2020"
         img={imgStoroc}>
-        <p>Created a proof-of-concept web application to search for and display live occupancy data for businesses during and post COVID with the intention of decreasing overcrowding and wait times. A Raspberry Pi was hooked up to a webcam to monitor the number of people entering and exiting a location using OpenCV object-detection algorithms. This occupancy data was posted to a REST service and subsequently fetched when users visited the application's webpage.</p>
+        <p>Created a proof-of-concept web application to search for and display live occupancy data for businesses during and post COVID with the intention of decreasing overcrowding and wait times. A Raspberry Pi was hooked up to a webcam to monitor the number of people entering and exiting a location using OpenCV object-detection algorithms. This occupancy data was posted to a REST service and subsequently fetched when users visited the application&apos;s webpage.</p>
         <Button url="https://engaged.umich.edu/news-features/engineering-course-challenges-students-to-create-tech-solutions-for-covid-19/" target="_blank" rel="noreferrer">
           Creating Tech Solutions for COVID-19
         </Button>

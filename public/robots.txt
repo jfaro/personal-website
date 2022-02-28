@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://julienfaro.io
+
+# Sitemaps
+Sitemap: https://julienfaro.io/sitemap.xml
