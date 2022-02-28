@@ -1,16 +1,133 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+/*****************************/
+/*  Responsive Design        */
+/*****************************/
+/*  
+    sm  >= 576px
+    md  >= 768px
+    lg  >= 992px
+    xl  >= 1200px
+*/
+
+/*****************************/
+/*  General                  */
+/*****************************/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--textPrimary);
+    scroll-behavior: smooth;
+
+    --width-sm: 576px;
+    --width-md: 768px;
+    --width-lg: 992px;
+    --width-xl: 1200px
+}
+
+body,
+body[data-theme='light'] {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    --shadow-1: 0px 8px 8px 0 rgba(0, 0, 0, .1);
+    --borderRadius: 4px;
+
+    --bg: rgb(242, 242, 242);
+    --bgRaised: rgb(250, 250, 250);
+    --bgToggle: #181818;
+    --textPrimary: #000;
+    --textSecondary: #696969;
+    --colorPrimary: #9e0000;
+    --border: #dddddd;
+}
+
+body[data-theme='dark'] {
+    --bg: rgb(24, 24, 24);
+    --bgRaised: #0f0f0f;
+    --bgToggle: #f2f2f2;
+    --textPrimary: #fff;
+    --textSecondary: #d2d2d2;
+    --border: #2d2d2d;
+    --colorPrimary: #ff7a7a;
+}
+
+/*****************************/
+/*  Text                     */
+/*****************************/
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+li {
+    z-index: 2;
+}
+
+p,
+ul {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 140%;
+    letter-spacing: 0.04em;
+    color: var(--textPrimary);
+    padding-bottom: 1rem;
+}
+
+h1 {
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 180%;
+    letter-spacing: 0.32em;
+    color: var(--textPrimary);
+    padding-bottom: .5rem;
+}
+
+h2 {
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 180%;
+    letter-spacing: 0.32em;
+    color: var(--textPrimary);
+    padding-bottom: .5rem;
+}
+
+h3 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 140%;
+    letter-spacing: 0.04em;
+    color: var(--textSecondary);
+    padding-bottom: .5rem;
+}
+
+ul {
+    list-style-type: square;
+    margin-left: 1.25rem;
+}
+
+button {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: var(--colorPrimary);
+    text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+/*****************************/
+/*  three                    */
+/*****************************/
+canvas {
+    background: var(--bg);
 }
