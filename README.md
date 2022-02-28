@@ -1,6 +1,6 @@
 <div align="center">
 
-<img width="200" src="./public/icon.png" />
+<img width="64" src="./public/icon.png" />
 
 # Personal Website
 
