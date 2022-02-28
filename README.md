@@ -1,6 +1,6 @@
 <div align="center">
 
-![](./public/icon.png | width=200)
+<img width="200" src="./public/icon.png" />
 
 # Personal Website
 
