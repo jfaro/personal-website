@@ -1,7 +1,13 @@
 import * as THREE from 'three'
 import React, { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { Environment, ContactShadows, OrbitControls } from '@react-three/drei'
+import {
+    Environment,
+    ContactShadows,
+    OrbitControls,
+    DeviceOrientationControls
+} from '@react-three/drei'
+import { isMobile } from 'react-device-detect';
 import styled from 'styled-components';
 import ContactBar from './ContactBar';
 import Model from '../components/MacbookModel'
@@ -71,6 +77,7 @@ const CanvasContainer = styled.div`
 const CanvasArea = styled.div`
     width: 500px;
     height: 100%;
+    pointer-events: ${isMobile ? 'none' : 'all'};
 
     @media(min-width: ${screenSml}px) {
         position: absolute;
@@ -127,6 +134,8 @@ export default function Landing() {
                                 height={15}
                                 blur={5}
                                 far={5} />
+
+                            <DeviceOrientationControls />
                             <OrbitControls
                                 enablePan={false}
                                 enableZoom={false}

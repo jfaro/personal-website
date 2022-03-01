@@ -20,8 +20,6 @@ export default function Model(props) {
         group.current.position.y = THREE.MathUtils.lerp(group.current.position.y, (-5 + Math.sin(t)) / 5, 0.1)
     })
 
-    console.log(materials)
-
     return (
         <group ref={group} {...props} dispose={null} scale={[modelScale, modelScale, modelScale]}>
             <group position={[0.12, 0, -0.11]} rotation={[-1.92, 0, 0]}>
