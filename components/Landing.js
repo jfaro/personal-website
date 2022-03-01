@@ -7,7 +7,6 @@ import {
     OrbitControls,
     DeviceOrientationControls
 } from '@react-three/drei'
-import { isMobile } from 'react-device-detect';
 import styled from 'styled-components';
 import ContactBar from './ContactBar';
 import Model from '../components/MacbookModel'
@@ -69,7 +68,7 @@ const CanvasContainer = styled.div`
     z-index: 0;
 
     @media(max-width: ${screenSml}px) {
-        width: 100%;
+        display: none;
     }
     overflow: visible;
 `;
@@ -77,13 +76,14 @@ const CanvasContainer = styled.div`
 const CanvasArea = styled.div`
     width: 500px;
     height: 100%;
-    pointer-events: ${isMobile ? 'none' : 'all'};
+    pointer-events: none;
 
     @media(min-width: ${screenSml}px) {
         position: absolute;
         left: -100px;
         width: 600px;
         height: 600px;
+        pointer-events: none;
     }
 
     @media(min-width: ${screenMed}px) {
@@ -91,6 +91,7 @@ const CanvasArea = styled.div`
         left: -150px;
         width: 700px;
         height: 700px;
+        pointer-events: all;
     }
 
     @media(min-width: ${screenLrg}px) {
@@ -98,6 +99,7 @@ const CanvasArea = styled.div`
         left: -150px;
         width: 800px;
         height: 800px;
+        pointer-events: all;
     }
 `;
 
@@ -135,7 +137,6 @@ export default function Landing() {
                                 blur={5}
                                 far={5} />
 
-                            <DeviceOrientationControls />
                             <OrbitControls
                                 enablePan={false}
                                 enableZoom={false}

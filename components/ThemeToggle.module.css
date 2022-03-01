@@ -15,7 +15,7 @@
     border-radius: 32px;
     position: relative;
     background: var(--bgRaised);
-    transition: background-color .2s;
+    transition: .2s;
     border: thin solid var(--border);
 }
 
