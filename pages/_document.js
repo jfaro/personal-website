@@ -34,6 +34,8 @@ class MyDocument extends Document {
         return (
             <Html>
                 <Head>
+
+                    {/* Google Fonts */}
                     <link
                         rel="preconnect"
                         href="https://fonts.googleapis.com"
@@ -50,6 +52,24 @@ class MyDocument extends Document {
                     <link
                         href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,300&display=swap"
                         rel="stylesheet"
+                    />
+
+                    {/* Google Analytics */}
+                    <script
+                        async
+                        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+                    />
+                    <script
+                        dangerouslySetInnerHTML={{
+                            __html: `
+                                window.dataLayer = window.dataLayer || [];
+                                function gtag(){dataLayer.push(arguments);}
+                                gtag('js', new Date());
+                                gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+                                page_path: window.location.pathname,
+                                });
+                        `,
+                        }}
                     />
                 </Head>
                 <body>
