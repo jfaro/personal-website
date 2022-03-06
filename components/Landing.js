@@ -5,11 +5,11 @@ import {
     Environment,
     ContactShadows,
     OrbitControls,
-    DeviceOrientationControls
 } from '@react-three/drei'
 import styled from 'styled-components';
 import ContactBar from './ContactBar';
-import Model from '../components/MacbookModel'
+import Model from '../components/MacbookModel';
+import Loader from '../components/Loader';
 
 const screenSml = 800;
 const screenMed = 992;
@@ -121,7 +121,7 @@ export default function Landing() {
                                 position={[10, 10, 10]}
                                 intensity={1.5} />
 
-                            <Suspense fallback={null}>
+                            <Suspense fallback={<Loader />}>
                                 <group rotation={[0, .9 * Math.PI, 0]}>
                                     <Model />
                                 </group>
