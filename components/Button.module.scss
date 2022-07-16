@@ -1,0 +1,33 @@
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .75rem 2rem;
+    border: 1px solid var(--textPrimary);
+    border-radius: 2px;
+
+    transition: .4s;
+
+    &:hover {
+        transform: translateY(-4px);
+        cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+}
+
+.filled {
+    background: var(--textPrimary);
+    color: var(--bgRaised);
+    > svg {
+        fill: var(--bgRaised);
+        stroke: var(--bgRaised);
+    }
+}
+
+.outline {
+    background: none;
+    color: var(--textPrimary);
+}
