@@ -1,0 +1,86 @@
+$screenSml: 800px;
+$screenMed: 992px;
+$screenLrg: 1200px;
+
+.content {
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+};
+
+.center {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+
+    @media(max-width: $screenSml) {
+        flex-direction: column;
+        width: 100%;
+        gap: 2rem;
+    }
+}
+
+.textContainer {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 1;
+    gap: 2rem;
+
+    @media(max-width: $screenSml) {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+.canvasContainer {
+    width: 50%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 0;
+    overflow: visible;
+
+    @media(max-width: $screenSml) {
+        display: none;
+    }
+}
+
+.canvasArea {
+    width: 500px;
+    height: 100%;
+    pointer-events: none;
+
+    @media(min-width: $screenSml) {
+        position: absolute;
+        left: -100px;
+        width: 600px;
+        height: 600px;
+        pointer-events: none;
+    }
+
+    @media(min-width: $screenMed) {
+        position: absolute;
+        left: -150px;
+        width: 700px;
+        height: 700px;
+        pointer-events: all;
+    }
+
+    @media(min-width: $screenLrg) {
+        position: absolute;
+        left: -150px;
+        width: 800px;
+        height: 800px;
+        pointer-events: all;
+    }
+}
