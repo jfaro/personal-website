@@ -1,110 +1,77 @@
-import React from 'react'
-import styled from 'styled-components'
+import { useLayoutEffect, useRef } from 'react';
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { LazyLoad } from "./shared/LazyLoad";
+import cx from "classnames";
+import styles from "./Experience.module.scss";
 
-const breakWidth = '992px'
+const ExperienceComponent = ({ title, position, date, img, textOnRight, children }) => {
+    const wrapperRef = useRef();
+    const imgRef = useRef();
+    const textRef = useRef();
 
-const Container = styled.div`
-    padding: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    useLayoutEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
 
-    > * + * {
-        margin-left: 4rem;
-    }
-`
+        // Fade in image
+        gsap.fromTo(imgRef.current, {
+            opacity: 0
+        }, {
+            opacity: 1,
+            duration: 0.2,
+            delay: 0.2,
+            ease: "pwoer3",
+            scrollTrigger: {
+                trigger: wrapperRef.current,
+                start: "top center",
+            }
+        });
 
-const ContainerImgRight = styled(Container)`
-    @media (max-width: ${breakWidth}) {
-        flex-direction: column;
-
-        > * + * {
-            margin-left: 0;
-            margin-top: 2rem;
-        }
-    }
-`
-
-const ContainerImgLeft = styled(Container)`
-    @media (max-width: ${breakWidth}) {
-        flex-direction: column-reverse;
-
-        > * + * {
-            margin-left: 0;
-            margin-bottom: 2rem;
-        }
-    }
-`
-
-const TextContainer = styled.div`
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-
-    @media (max-width: ${breakWidth}) {
-        width: 100%;
-    }
-`
-
-const IntroBlock = styled.div`
-    padding-bottom: 1rem;
-
-    > h1, h2 {
-        margin: 0;
-        padding: 0;
-    }
-
-    > h3 {
-        padding-top: 1rem;
-    }
-`
-
-const ImageContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-
-    @media (max-width: ${breakWidth}) {
-        width: 100%;
-    }
-`
-
-export default function Experience({ title, position, date, img, textOnRight, children }) {
+        // Fade in description
+        gsap.fromTo(textRef.current, {
+            x: textOnRight ? 100 : -100,
+            opacity: 0
+        }, {
+            x: 0,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power3",
+            scrollTrigger: {
+                trigger: wrapperRef.current,
+                start: "top center",
+            }
+        });
+    }, [textOnRight]);
 
     const text = (
-        <TextContainer>
-            <IntroBlock>
+        <div ref={textRef} className={styles.textContainer}>
+            <div className={styles.introBlock}>
                 <h1>{title}</h1>
                 <h2>{position}</h2>
                 <h3>{date}</h3>
-            </IntroBlock>
+            </div>
             {children}
-        </TextContainer>
+        </div>
     )
 
-    const image = (
-        <ImageContainer >
-            {img}
-        </ImageContainer>
-    )
+    const image = <div ref={imgRef} className={styles.imageContainer}>{img}</div>;
 
-    // Image on left
-    if (textOnRight) {
-        return (
-            <ContainerImgLeft>
-                {image}
-                {text}
-            </ContainerImgLeft>
-        )
-    }
-    // Image on right
-    else {
-        return (
-            <ContainerImgRight>
-                {text}
-                {image}
-            </ContainerImgRight>
-        )
-    }
+    return (
+        <div ref={wrapperRef} className={cx(styles.container, textOnRight ? styles.imgLeft : styles.imgRight)}>
+            {textOnRight ? image : text}
+            {textOnRight ? text : image}
+        </div>
+    )
 }
+
+const Experience = ({ title, position, date, img, textOnRight, children }) => {
+    return (
+        <LazyLoad>
+            <ExperienceComponent title={title} position={position} date={date} img={img} textOnRight={textOnRight}>
+                {children}
+            </ExperienceComponent>
+        </LazyLoad>
+    )
+}
+
+export default Experience;
