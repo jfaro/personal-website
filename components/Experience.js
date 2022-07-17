@@ -27,7 +27,6 @@ const ExperienceComponent = ({ title, position, date, img, textOnRight, children
                 start: "center bottom",
                 end: "center center",
                 scrub: true,
-                markers: true
             }
         });
 
