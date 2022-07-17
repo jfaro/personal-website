@@ -1,47 +1,63 @@
-import { useLayoutEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { LazyLoad } from "./shared/LazyLoad";
 import cx from "classnames";
 import styles from "./Experience.module.scss";
+import { useWindowSize } from '../hooks/useWindowSize';
 
 const ExperienceComponent = ({ title, position, date, img, textOnRight, children }) => {
     const wrapperRef = useRef();
     const imgRef = useRef();
     const textRef = useRef();
+    const { width } = useWindowSize();
+    const [onMobile, setOnMobile] = useState(false);
+
+    useEffect(() => {
+        setOnMobile(width && width < 992);
+        console.log("width: ", width);
+    }, [width]);
 
     useLayoutEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
 
-        // Fade in image
-        gsap.fromTo(imgRef.current, {
-            opacity: 0
-        }, {
-            opacity: 1,
-            duration: 0.2,
-            delay: 0.2,
-            ease: "pwoer3",
+        const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: wrapperRef.current,
-                start: "top center",
+                start: "center bottom",
+                end: "center center",
+                scrub: true,
+                markers: true
             }
         });
 
-        // Fade in description
-        gsap.fromTo(textRef.current, {
+        const animateImage = gsap.fromTo(imgRef.current, {
+            x: textOnRight ? -20 : 20,
+            opacity: 0
+        }, {
+            x: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "sin",
+        });
+
+        const animateText = gsap.fromTo(textRef.current, {
             x: textOnRight ? 100 : -100,
             opacity: 0
         }, {
             x: 0,
             opacity: 1,
-            duration: 0.5,
-            ease: "power3",
-            scrollTrigger: {
-                trigger: wrapperRef.current,
-                start: "top center",
-            }
+            duration: 1,
+            ease: "expo",
         });
-    }, [textOnRight]);
+
+        // Add animations in correct order
+        console.log("onMobile! -> text first");
+        tl.add(onMobile ? animateText : animateImage);
+        tl.add(onMobile ? animateImage : animateText);
+
+        return () => tl.kill();
+    }, [textOnRight, onMobile]);
 
     const text = (
         <div ref={textRef} className={styles.textContainer}>
