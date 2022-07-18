@@ -24,34 +24,33 @@ const ExperienceComponent = ({ title, position, date, img, textOnRight, children
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: wrapperRef.current,
-                start: "center bottom",
+                start: "top bottom",
                 end: "center center",
                 scrub: true,
             }
         });
 
         const animateImage = gsap.fromTo(imgRef.current, {
-            x: textOnRight ? -20 : 20,
+            y: 400,
             opacity: 0
         }, {
-            x: 0,
+            y: 0,
             opacity: 1,
             duration: 1,
             ease: "sin",
         });
 
         const animateText = gsap.fromTo(textRef.current, {
-            x: textOnRight ? 100 : -100,
+            y: 400,
             opacity: 0
         }, {
-            x: 0,
+            y: 0,
             opacity: 1,
             duration: 1,
             ease: "expo",
         });
 
-        // Add animations in correct order
-        console.log("onMobile! -> text first");
+        // Add animations in correct order depending on layout
         tl.add(onMobile ? animateText : animateImage);
         tl.add(onMobile ? animateImage : animateText);
 
