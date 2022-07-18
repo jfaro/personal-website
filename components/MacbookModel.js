@@ -7,7 +7,7 @@ import { useGLTF } from "@react-three/drei";
 
 export default function Model(props) {
     const group = useRef();
-    const { nodes, materials } = useGLTF("/models/macbook-pro-crypto.glb");
+    const { nodes, materials } = useGLTF("/models/macbook-pro.glb");
 
     const modelScale = 30;
 
@@ -120,4 +120,4 @@ export default function Model(props) {
     );
 }
 
-useGLTF.preload("/models/macbook-pro-crypto.glb");
+useGLTF.preload("/models/macbook-pro.glb");
