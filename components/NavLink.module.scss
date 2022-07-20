@@ -1,0 +1,16 @@
+.link {
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 180%;
+    letter-spacing: 0.32em;
+    color: var(--textPrimary);
+    text-decoration: none;
+    transition: .4s;
+    
+    &:hover {
+        cursor: pointer;
+        color: var(--colorPrimary);
+    }
+}
