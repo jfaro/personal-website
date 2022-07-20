@@ -2,10 +2,10 @@
 /*  Responsive Design        */
 /*****************************/
 /*  
-    sm  >= 576px
-    md  >= 768px
-    lg  >= 992px
-    xl  >= 1200px
+sm  >= 576px
+md  >= 768px
+lg  >= 992px
+xl  >= 1200px
 */
 
 /*****************************/
@@ -20,31 +20,18 @@
     cursor: url("/cursors/cursor-1.svg"), auto;
 }
 
-html,
-body,
-#root {
-    width: 100%;
-    height: 100%;
-}
-
-#root {
+/*****************************/
+/*  Themeing                 */
+/*****************************/
+:root {
     --width-sm: 576px;
     --width-md: 768px;
     --width-lg: 992px;
     --width-xl: 1200px
-}
-
-/*****************************/
-/*  Themeing                 */
-/*****************************/
-body,
-body[data-theme='light'] {
-    font-family: 'Lato', sans-serif;
-    font-size: 16px;
-    font-weight: 400;
     --shadow-1: 0px 8px 8px 0 rgba(0, 0, 0, .1);
     --borderRadius: 4px;
 
+    // Light theme
     --bg: rgb(242, 242, 242);
     --bgRaised: rgb(250, 250, 250);
     --bgToggle: #181818;
@@ -54,7 +41,8 @@ body[data-theme='light'] {
     --border: #dddddd;
 }
 
-body[data-theme='dark'] {
+// Dark theme
+[data-theme='dark'] {
     --bg: rgb(24, 24, 24);
     --bgRaised: #0f0f0f;
     --bgToggle: #f2f2f2;
@@ -62,6 +50,12 @@ body[data-theme='dark'] {
     --textSecondary: #d2d2d2;
     --border: #2d2d2d;
     --colorPrimary: #ff7a7a;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 /*****************************/
