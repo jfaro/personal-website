@@ -1,0 +1,34 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 0 0 0;
+    position: relative;
+    z-index: 100;
+}
+
+.content {
+    width: 100%;
+    max-width: 1200px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+
+    @media(max-width: 800px) {
+        flex-direction: column;
+    }
+}
+
+.headerSide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    @media(max-width: 800px) {
+        flex-direction: column;
+    }
+}
