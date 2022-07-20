@@ -1,9 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
-import ThemeToggle from './ThemeToggle';
-import Logo from './icons/Logo';
-import styles from "./Header.module.scss";
+import { ThemeToggle } from './ThemeToggle';
 import { NavLink } from './NavLink';
+import Logo from './icons/Logo';
+
+import styles from "./Header.module.scss";
 
 export default function Header() {
     return (
