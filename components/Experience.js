@@ -78,7 +78,7 @@ const ExperienceComponent = ({ title, position, date, img, textOnRight, children
     )
 }
 
-const Experience = ({ title, position, date, img, textOnRight, children }) => {
+export const Experience = ({ title, position, date, img, textOnRight, children }) => {
     return (
         <LazyLoad>
             <ExperienceComponent title={title} position={position} date={date} img={img} textOnRight={textOnRight}>
@@ -87,5 +87,3 @@ const Experience = ({ title, position, date, img, textOnRight, children }) => {
         </LazyLoad>
     )
 }
-
-export default Experience;
