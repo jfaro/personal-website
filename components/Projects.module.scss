@@ -1,0 +1,9 @@
+$spacing: 8rem;
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing;
+    padding-bottom: $spacing;
+}
