@@ -11,13 +11,13 @@
 /*****************************/
 /*  General                  */
 /*****************************/
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     color: var(--textPrimary);
     scroll-behavior: smooth;
+    cursor: url("/cursors/cursor-1.svg"), auto;
 }
 
 html,
@@ -34,7 +34,9 @@ body,
     --width-xl: 1200px
 }
 
-/* Theming */
+/*****************************/
+/*  Themeing                 */
+/*****************************/
 body,
 body[data-theme='light'] {
     font-family: 'Lato', sans-serif;
