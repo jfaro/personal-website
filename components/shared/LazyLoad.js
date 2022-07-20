@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 
-export const LazyLoad = ({ children }) => {
+const Loading = () => {
+    return <div></div>;
+}
+
+export const LazyLoad = ({ loader, children }) => {
     const [showChild, setShowChild] = useState(false);
 
     useEffect(() => {
@@ -8,7 +12,7 @@ export const LazyLoad = ({ children }) => {
     }, []);
 
     if (!showChild) {
-        return null;
+        return <Loading />;
     }
 
     return <>{children}</>;
