@@ -9,18 +9,6 @@ xl  >= 1200px
 */
 
 /*****************************/
-/*  General                  */
-/*****************************/
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    color: var(--textPrimary);
-    scroll-behavior: smooth;
-    cursor: url("/cursors/cursor-1.svg"), auto;
-}
-
-/*****************************/
 /*  Themeing                 */
 /*****************************/
 :root {
@@ -50,6 +38,17 @@ xl  >= 1200px
     --textSecondary: #d2d2d2;
     --border: #2d2d2d;
     --colorPrimary: #ff7a7a;
+}
+
+/*****************************/
+/*  General                  */
+/*****************************/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--textPrimary);
+    scroll-behavior: smooth;
 }
 
 body {
